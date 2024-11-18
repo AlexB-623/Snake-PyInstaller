@@ -1,0 +1,10 @@
+PyInstaller app.py --add-data "assets;assets" --contents-directory "."
+
+PyInstaller app.py --onefile --add-data "assets;assets" --contents-directory "."
+
+--windowed
+
+I think you always need to use file path references:
+
+bundle_dir = getattr(sys, "_MEIPASS", path.abspath(path.dirname(__file__)))
+path_to_snek = path.join(bundle_dir, "assets", "snek.png")
